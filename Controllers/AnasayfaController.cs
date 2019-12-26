@@ -62,5 +62,37 @@ namespace SelcukElektromobilWebsite.Controllers
             return View();
         }
 
+
+
+        /* GALERI */
+        public IActionResult Galeri()
+        {
+            return View();
+        }
+
+
+
+        /* SPONSORLAR */
+        public IActionResult Sponsorlar()
+        {
+            return View();
+        }
+
+
+
+        /* HABERLER */
+        public IActionResult Haberler()
+        {
+            return View();
+        }
+
+
+
+        /* ILETISIM */
+        public IActionResult Iletisim()
+        {
+            return View();
+        }
+
     }
 }
