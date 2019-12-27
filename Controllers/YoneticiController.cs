@@ -15,6 +15,18 @@ namespace SelcukElektromobilWebsite.Controllers
             return View();
         }
 
+        /* GIRIS YAP */
+        public IActionResult Giris()
+        {
+            return View();
+        }
+
+        /* BILGILER */
+        public IActionResult Bilgiler()
+        {
+            return View();
+        }
+
 
 
     }

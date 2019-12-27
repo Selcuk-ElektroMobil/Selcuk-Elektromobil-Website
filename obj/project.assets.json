@@ -3123,6 +3123,15 @@
           }
         }
       },
+      "Saklambac.Core/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/Saklambac.NetCore.dll": {}
+        },
+        "runtime": {
+          "lib/Saklambac.NetCore.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_green/1.1.7": {
         "type": "package",
         "dependencies": {
@@ -8429,6 +8438,17 @@
         "version.txt"
       ]
     },
+    "Saklambac.Core/1.0.2": {
+      "sha512": "/xcefty7JHOTkozUSdoAsqb1QZMq26H2X9xsFo+D0NE5kGw9gGDCA5f4Y0TyyG/6+Jz2B6VDvG7mm62Q7xRx/Q==",
+      "type": "package",
+      "path": "saklambac.core/1.0.2",
+      "files": [
+        ".signature.p7s",
+        "lib/Saklambac.NetCore.dll",
+        "saklambac.core.1.0.2.nupkg.sha512",
+        "saklambac.core.nuspec"
+      ]
+    },
     "SQLitePCLRaw.bundle_green/1.1.7": {
       "sha512": "Kw+n4CUhQ8S4YAPmpRUldO8S7c4LU7HHukJF0v5Sfggf8Ia9YVdIh0dYkMvKvS+DTX+OBORSMqPM0CGfAzFtVA==",
       "type": "package",
@@ -13298,7 +13318,8 @@
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.AspNetCore.All >= 2.0.8",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3",
+      "Saklambac.Core >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -13354,6 +13375,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.0.3, )"
+          },
+          "Saklambac.Core": {
+            "target": "Package",
+            "version": "[1.0.2, )"
           }
         },
         "imports": [
@@ -13363,5 +13388,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Saklambac.Core 1.0.2' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Saklambac.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }
