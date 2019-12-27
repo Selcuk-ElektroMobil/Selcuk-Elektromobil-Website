@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "01e5771f7e8b429492f0f2274214c7fcc3419588"
+    "signature": "f37145a0b07344f0cb1a2e05f67881b47302a96d"
   },
   "compilationOptions": {
     "defines": [
@@ -25,7 +25,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.All": "2.0.8",
           "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
+          "Saklambac.Core": "1.0.2"
         },
         "runtime": {
           "SelcukElektromobilWebsite.dll": {}
@@ -2683,6 +2684,14 @@
             "rid": "win-x86",
             "assetType": "native"
           }
+        }
+      },
+      "Saklambac.Core/1.0.2": {
+        "runtime": {
+          "lib/Saklambac.NetCore.dll": {}
+        },
+        "compile": {
+          "lib/Saklambac.NetCore.dll": {}
         }
       },
       "SQLitePCLRaw.bundle_green/1.1.7": {
@@ -5615,6 +5624,13 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
+    },
+    "Saklambac.Core/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/xcefty7JHOTkozUSdoAsqb1QZMq26H2X9xsFo+D0NE5kGw9gGDCA5f4Y0TyyG/6+Jz2B6VDvG7mm62Q7xRx/Q==",
+      "path": "saklambac.core/1.0.2",
+      "hashPath": "saklambac.core.1.0.2.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_green/1.1.7": {
       "type": "package",
