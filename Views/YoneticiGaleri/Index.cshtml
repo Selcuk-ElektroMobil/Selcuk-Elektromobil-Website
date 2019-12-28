@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Gallery>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<script src="~/LayoutAdmin/vendor/jquery/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+@if (TempData["AddMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AddMessage"]
+    </div>
+}
+
+@if (TempData["UpdateMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["UpdateMessage"]
+    </div>
+}
+
+@if (TempData["DeleteMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["DeleteMessage"]
+    </div>
+}
+
+<a href="/YoneticiGaleri/Ekle" class="btn btn-info btn-icon-split" style="margin-bottom:10px">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus-circle"></i>
+    </span>
+    <span class="text">Yeni Fotoğraf Ekle</span>
+</a>
+
+@if (Model.Count() > 0)
+{
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Galeri Fotoğraflar Listesi
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>Başlık</th>
+                            <th>Tarih</th>
+                            <th>Fotoğraf</th>
+                            <th>İşlemler</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var tm = "#myModal" + item.Id;
+                            var mid = "myModal" + item.Id;
+                            <tr>
+                                <td>@item.Title</td>
+                                <td>@item.Date</td>
+                                <td>@item.Photo</td>
+                                <td>
+                                    <a href="/YoneticiGaleri/Incele/@item.Id" class="btn btn-warning btn-sm"><i class="fa fa-search"></i> İncele</a>
+                                    <a href="#" data-target="@tm" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Sil</a>
+                                </td>
+                            </tr>
+
+                            <!-- Delete Modal-->
+                            <div class="modal fade" id="@mid" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Fotoğraf Silme Ekranı</h5>
+                                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <form asp-controller="YoneticiGaleri" asp-action="Sil" asp-route-Id="@item.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                                            <div class="modal-body">
+                                                Fotoğrafı Gerçekten Silmek İstediğinize Emin Misiniz ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal Et</button>
+                                                <button type="submit" class="btn btn-danger">Fotoğraf Sil</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer small text-muted">Son Güncelleme Tarihi : @DateTime.Now</div>
+    </div>
+}
+else
+{
+    <div class="card mb-3 text-center">
+        <div class="card-header">
+            <i class="fas fa-table"></i>
+            Veri Bulunamadı
+        </div>
+        <div class="card-body">
+            Eklenmiş Herhangi Bir Veri Bulunamadı...
+        </div>
+    </div>
+}
+
+

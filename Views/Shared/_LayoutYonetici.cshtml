@@ -12,10 +12,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Berke Kurnaz">
+    <meta name="author" content="Berke Kurnaz">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Selcuk Elektromobil</title>
 
     <!-- Custom fonts for this template-->
     <link href="~/LayoutAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,6 +23,10 @@
 
     <!-- Custom styles for this template-->
     <link href="~/LayoutAdmin/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="~/LayoutAdmin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -47,7 +51,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="/Yonetici/Index/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Anasayfa</span>
                 </a>
@@ -69,9 +73,9 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Üye Ekle</a>
-                        <a class="collapse-item" href="cards.html">Fotoğraf Ekle</a>
-                        <a class="collapse-item" href="cards.html">Haber Ekle</a>
+                        <a class="collapse-item" href="#">Üye Ekle</a>
+                        <a class="collapse-item" href="#">Fotoğraf Ekle</a>
+                        <a class="collapse-item" href="#">Haber Ekle</a>
                     </div>
                 </div>
             </li>
@@ -84,9 +88,9 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Üyeleri Raporla</a>
-                        <a class="collapse-item" href="utilities-border.html">Haberleri Raporla</a>
-                        <a class="collapse-item" href="utilities-animation.html">Fotoğrafları Raporla</a>
+                        <a class="collapse-item" href="#">Üyeleri Raporla</a>
+                        <a class="collapse-item" href="#">Haberleri Raporla</a>
+                        <a class="collapse-item" href="#">Fotoğrafları Raporla</a>
                     </div>
                 </div>
             </li>
@@ -101,7 +105,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="/Yonetici/Bilgiler/">
                     <i class="fas fa-fw fa fa-users"></i>
                     <span>Ekibimiz</span>
                 </a>
@@ -109,7 +113,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/Yonetici/Mesajlar/">
                     <i class="fas fa-fw fa-comment"></i>
                     <span>Mesajlar</span>
                 </a>
@@ -117,7 +121,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/Yonetici/Bilgiler/">
                     <i class="fas fa-fw fa fa-newspaper"></i>
                     <span>Haberler</span>
                 </a>
@@ -125,7 +129,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="/YoneticiGaleri/Index/">
                     <i class="fas fa-fw fa fa-camera-retro"></i>
                     <span>Galeri</span>
                 </a>
@@ -341,7 +345,7 @@
                 <div class="container-fluid">
 
                     @RenderBody()
-                
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -397,11 +401,8 @@
     <script src="~/LayoutAdmin/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="~/LayoutAdmin/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="~/LayoutAdmin/js/demo/chart-area-demo.js"></script>
-    <script src="~/LayoutAdmin/js/demo/chart-pie-demo.js"></script>
+    <script src="~/LayoutAdmin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/LayoutAdmin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
 </body>
 

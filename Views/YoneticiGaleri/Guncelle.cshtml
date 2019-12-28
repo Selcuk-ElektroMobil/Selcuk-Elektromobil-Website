@@ -1,0 +1,42 @@
+﻿@model Gallery
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Yeni Fotoğraf Ekle</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+                <form asp-controller="YoneticiGaleri" asp-action="Guncelle" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                    <div class="form-group">
+                        <br />
+                        <label>Fotoğraf Başlık</label>
+                        <input type="text" class="form-control kontrol" asp-for="Title" value="@Model.Title" required>
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label>Fotoğraf Eklenme Tarihi</label>
+                        <input type="text" class="form-control kontrol" asp-for="Date" value="@Model.Date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label mb-1">Aktif Fotoğraf</label>
+                        <center><img src="~/Galeri/@Model.Photo" width="250" /></center>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label mb-1">Yeni Fotoğraf</label>
+                        <input class="form-control" type="file" name="Image" />
+                    </div>
+
+                    <center><button type="submit" class="btn btn-success"><i class="fa fa-wrench" aria-hidden="true"></i> Fotoğraf Güncelle</button></center><br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
