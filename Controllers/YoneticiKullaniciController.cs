@@ -30,11 +30,35 @@ namespace SelcukElektromobilWebsite.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Ekle(User user)
+        {
+            userDb.Add(user);
+            TempData["AddMessage"] = "Kullanıcı Başarıyla Eklendi.";
+            return RedirectToAction("Index");
+        }
+
+        /* KULLANICI GUNCELLEME */
+        public IActionResult Guncelle(string Id)
+        {
+            return View(userDb.GetOneById(Id));
+        }
+        [HttpPost]
+        public IActionResult Guncelle(string Id, User user)
+        {
+            var userfind = userDb.GetOneById(Id);
+            userDb.Update(userfind, user);
+            TempData["UpdateMessage"] = "Kullanıcı Başarıyla Güncellendi.";
+            return RedirectToAction("Index");
+        }
 
         /* KULLANICI SILME */
-        public IActionResult Sil()
+        [HttpPost]
+        public IActionResult Sil(string Id)
         {
-            return View(userDb.GetAll());
+            userDb.DeleteWithId(Id);
+            TempData["DeleteMessage"] = "Kullanıcı Başarıyla Silindi.";
+            return RedirectToAction("Index");
         }
 
     }
