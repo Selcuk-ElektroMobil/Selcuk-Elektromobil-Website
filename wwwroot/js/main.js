@@ -267,6 +267,7 @@ jQuery(document).ready(function($) {
 	};
 	siteSticky();
 
+    /*
 	// navigation
   var OnePageNavigation = function() {
     var navToggler = $('.site-menu-toggle');
@@ -284,6 +285,7 @@ jQuery(document).ready(function($) {
     });
   };
   OnePageNavigation();
+  */
 
   var siteScroll = function() {
 
