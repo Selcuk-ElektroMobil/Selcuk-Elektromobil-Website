@@ -67,6 +67,7 @@ namespace SelcukElektromobilWebsite.Controllers
         public async Task<IActionResult> Guncelle(string Id, Gallery newGallery, IFormFile Image)
         {
             Gallery gallery = galleryDb.GetOneById(Id);
+            Gallery updateGallery = galleryDb.GetOneById(Id);
             if (Image != null)
             {
                 if (gallery.Photo != "defaultgallery.png")
@@ -84,7 +85,7 @@ namespace SelcukElektromobilWebsite.Controllers
                 }
                 gallery.Photo = newImage;
             }
-            galleryDb.Update(newGallery, gallery);
+            galleryDb.Update(updateGallery, gallery);
             TempData["UpdateMessage"] = "Fotoğraf Başarıyla Güncellendi.";
             return RedirectToAction("Index");
         }

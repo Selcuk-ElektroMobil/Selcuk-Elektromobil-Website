@@ -1,4 +1,4 @@
-﻿@model Gallery
+﻿@model News
 @{
     ViewData["Title"] = "Incele";
     Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
@@ -9,7 +9,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Fotoğraf Başlık</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Haber Başlık</h6>
                 </div>
                 <div class="card-body">
                     @Model.Title
@@ -19,7 +19,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Fotoğraf Eklenme Tarihi</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Haber Eklenme Tarihi</h6>
                 </div>
                 <div class="card-body">
                     @Model.Date
@@ -31,7 +31,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Fotoğraf İsim</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Haber Fotoğraf İsim</h6>
                 </div>
                 <div class="card-body">
                     @Model.Photo
@@ -41,10 +41,22 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Fotoğraf</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Haber Fotoğraf</h6>
                 </div>
                 <div class="card-body">
-                    <img src="~/Galeri/@Model.Photo" width="250"/> 
+                    <img src="~/Haberler/@Model.Photo" width="250" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Haber İçerik</h6>
+                </div>
+                <div class="card-body">
+                    <p>@Model.Content</p>
                 </div>
             </div>
         </div>
@@ -56,8 +68,8 @@
                     <h6 class="m-0 font-weight-bold text-primary">İşlemler</h6>
                 </div>
                 <div class="card-body">
-                    <a href="/YoneticiGaleri/Index/" class="btn btn-info btn-sm"><i class="fa fa-arrow-left"></i> Geriye Dön</a>
-                    <a href="#" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Fotoğraf Sil</a>
+                    <a href="/YoneticiHaber/Index/" class="btn btn-info btn-sm"><i class="fa fa-arrow-left"></i> Geriye Dön</a>
+                    <a href="#" data-toggle="modal" data-target="#deleteModal" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Haber Sil</a>
                 </div>
             </div>
         </div>
@@ -76,22 +88,21 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Fotoğraf Silme Ekranı</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Haber Silme Ekranı</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <form asp-controller="YoneticiGaleri" asp-action="Sil" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+            <form asp-controller="YoneticiHaber" asp-action="Sil" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
                 <div class="modal-body">
-                    Fotoğrafı Gerçekten Silmek İstediğinize Emin Misiniz ?
+                    Haberi Gerçekten Silmek İstediğinize Emin Misiniz ?
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">İptal Et</button>
-                    <button type="submit" class="btn btn-danger">Fotoğraf Sil</button>
+                    <button type="submit" class="btn btn-danger">Haber Sil</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 
