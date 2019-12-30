@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+@if (TempData["AddMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AddMessage"]
+    </div>
+}
+
+@if (TempData["UpdateMessage"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["UpdateMessage"]
+    </div>
+}
+
+@if (TempData["DeleteMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["DeleteMessage"]
+    </div>
+}
+
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Selcuk Elektromobil Takım Listesi</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+
+                <br /><br />
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        Liste
+                    </a>
+                    <a href="/YoneticiEkip/TakimUyeleri?team=Elektronik" class="list-group-item list-group-item-action">Elektronik Takımı</a>
+                    <a href="/YoneticiEkip/TakimUyeleri?team=Mekanik" class="list-group-item list-group-item-action">Mekanik Takımı</a>
+                    <a href="/YoneticiEkip/TakimUyeleri?team=Yazılım" class="list-group-item list-group-item-action">Yazılım Takımı</a>
+                    <a href="/YoneticiEkip/TakimUyeleri?team=Akademisyen" class="list-group-item list-group-item-action">Akademisyenler</a>
+
+                </div>
+                <br /><br />
+
+            </div>
+        </div>
+    </div>
+</div>
+

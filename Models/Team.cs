@@ -14,6 +14,7 @@ namespace SelcukElektromobilWebsite.Models
         public string Twitter { get; set; }
         public string Linkedin { get; set; }
         public string Instagram { get; set; }
+        public string TeamName { get; set; }
 
         public Team()
         {

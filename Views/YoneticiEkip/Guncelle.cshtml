@@ -1,0 +1,73 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_LayoutYonetici.cshtml";
+}
+
+<div class="card">
+    <div class="card-heading border bottom">
+        <br />
+        <h4 class="card-title text-center">Üye Güncelle</h4>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-md-9 ml-auto mr-auto">
+                <form asp-controller="YoneticiEkip" asp-action="Guncelle" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+
+                    <div class="form-group">
+                        <br />
+                        <label>Üye Ad Soyad</label>
+                        <input type="text" class="form-control kontrol" asp-for="NameSurname" value="@Model.NameSurname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Üye Takım</label>
+                        <select class="form-control" asp-for="TeamName" text>
+                            <option>Elektronik</option>
+                            <option>Mekanik</option>
+                            <option>Yazılım</option>
+                            <option>Akademisyen</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        <label>Linkedin Hesabı</label>
+                        <input type="text" class="form-control kontrol" asp-for="Linkedin" value="@Model.Linkedin" required>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        <label>Twitter Hesabı</label>
+                        <input type="text" class="form-control kontrol" asp-for="Twitter" value="@Model.Twitter" required>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        <label>Instagram Hesabı</label>
+                        <input type="text" class="form-control kontrol" asp-for="Instagram" value="@Model.Instagram" required>
+                    </div>
+
+                    <div class="form-group">
+                        <br />
+                        <label>Github Hesabı</label>
+                        <input type="text" class="form-control kontrol" asp-for="Github" value="@Model.Github" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label mb-1">Aktif Fotoğraf</label>
+                        <center><img src="~/Ekip/@Model.Photo" width="250" /></center>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label mb-1">Yeni Üye Fotoğraf</label>
+                        <input class="form-control" type="file" name="Image" />
+                    </div>
+
+                    <center><button type="submit" class="btn btn-success"><i class="fa fa-wrench" aria-hidden="true"></i> Üye Güncelle</button></center><br />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
