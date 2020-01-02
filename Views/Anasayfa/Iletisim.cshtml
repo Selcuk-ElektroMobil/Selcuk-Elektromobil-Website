@@ -11,6 +11,13 @@
     </div>
 </div>
 
+@if (TempData["SendMessageSuccess"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SendMessageSuccess"]
+    </div>
+}
+
 <section class="site-section bg-light" id="contact-section" data-aos="fade">
     <div class="container">
         <div class="row mb-5">

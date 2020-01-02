@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<Team>
 @{
     ViewData["Title"] = "Akademisyenler";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,60 +23,26 @@
 
 
 
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
-                <div class="team-member">
-                    <figure>
-                        <ul class="social">
-                            <li><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                            <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                        <img src="~/images/person_1.jpg" alt="Image" class="img-fluid">
-                    </figure>
-                    <div class="p-3">
-                        <h3>Kaiara Spencer</h3>
-                        <span class="position">Accountant</span>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="">
+                    <div class="team-member">
+                        <figure>
+                            <ul class="social">
+                                <li><a href="@item.Github"><span class="icon-github"></span></a></li>
+                                <li><a href="@item.Twitter"><span class="icon-twitter"></span></a></li>
+                                <li><a href="@item.Linkedin"><span class="icon-linkedin"></span></a></li>
+                                <li><a href="@item.Instagram"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                            <img src="~/images/person_1.jpg" alt="Image" class="img-fluid">
+                        </figure>
+                        <div class="p-3">
+                            <h3>@item.NameSurname</h3>
+                            <span class="position">@item.TeamName</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="team-member">
-                    <figure>
-                        <ul class="social">
-                            <li><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                            <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                        <img src="~/images/person_2.jpg" alt="Image" class="img-fluid">
-                    </figure>
-                    <div class="p-3">
-                        <h3>Dave Simpson</h3>
-                        <span class="position">Bank Teller</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="team-member">
-                    <figure>
-                        <ul class="social">
-                            <li><a href="#"><span class="icon-facebook"></span></a></li>
-                            <li><a href="#"><span class="icon-twitter"></span></a></li>
-                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
-                            <li><a href="#"><span class="icon-instagram"></span></a></li>
-                        </ul>
-                        <img src="~/images/person_3.jpg" alt="Image" class="img-fluid">
-                    </figure>
-                    <div class="p-3">
-                        <h3>Ben Thompson</h3>
-                        <span class="position">Bank Teller</span>
-                    </div>
-                </div>
-            </div>
-
+            }
 
 
         </div>

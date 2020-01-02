@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<News>
 @{
     ViewData["Title"] = "Haberler";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,40 +15,30 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="">
-                <div class="h-entry">
-                    <a href="single.html">
-                        <img src="~/images/img_1.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <h2 class="font-size-regular"><a href="#">Banking is good for business? Why?</a></h2>
-                    <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-                    <p><a href="#">Continue Reading...</a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="h-entry">
-                    <a href="single.html">
-                        <img src="~/images/img_4.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <h2 class="font-size-regular"><a href="#">Banking is good for business? Why?</a></h2>
-                    <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-                    <p><a href="#">Continue Reading...</a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="h-entry">
-                    <a href="single.html">
-                        <img src="~/images/img_3.jpg" alt="Image" class="img-fluid">
-                    </a>
-                    <h2 class="font-size-regular"><a href="#">Banking is good for business? Why?</a></h2>
-                    <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-                    <p><a href="#">Continue Reading...</a></p>
-                </div>
-            </div>
 
+            @foreach (var item in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4 mb-lg-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="">
+                    <div class="h-entry">
+                        <a href="/Anasayfa/Haber/@item.Id">
+                            <img src="~/Haberler/@item.Photo" alt="Image" class="img-fluid">
+                        </a>
+                        <h2 class="font-size-regular"><a href="#">@item.Title</a></h2>
+                        <div class="meta mb-4">@item.Author <span class="mx-2">•</span> @item.Date<span class="mx-2">•</span> <a href="#">Haber</a></div>
+                        <p>
+                            @if(item.Content.Length > 50)
+                            {
+                                <span>@item.Content.Substring(0, 48)</span>
+                            }
+                            else
+                            {
+                                @item.Content
+                            }
+                        </p>
+                        <p><a href="/Anasayfa/Haber/@item.Id">Okumaya Devam Et</a></p>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </section>

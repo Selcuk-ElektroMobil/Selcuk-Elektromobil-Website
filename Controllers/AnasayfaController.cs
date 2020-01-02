@@ -4,11 +4,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Saklambac.NetCore.Database;
+using SelcukElektromobilWebsite.Models;
 
 namespace SelcukElektromobilWebsite.Controllers
 {
     public class AnasayfaController : Controller
     {
+
+        SaklambacDb<Contact> contactDb = new SaklambacDb<Contact>();
+        SaklambacDb<Team> teamDb = new SaklambacDb<Team>();
+        SaklambacDb<Gallery> galleryDb = new SaklambacDb<Gallery>();
+        SaklambacDb<News> newsDb = new SaklambacDb<News>();
 
         /* ANASAYFA */
         public IActionResult Index()
@@ -44,22 +51,22 @@ namespace SelcukElektromobilWebsite.Controllers
         /* EKİBİMİZ SAYFALARI */
         public IActionResult Akademisyenler()
         {
-            return View();
+            return View(teamDb.GetAll().Where(x => x.TeamName == "Akademisyen"));
         }
 
         public IActionResult ElektronikTakimi()
         {
-            return View();
+            return View(teamDb.GetAll().Where(x => x.TeamName == "Elektronik"));
         }
 
         public IActionResult MekanikTakimi()
         {
-            return View();
+            return View(teamDb.GetAll().Where(x => x.TeamName == "Mekanik"));
         }
 
         public IActionResult YazilimTakimi()
         {
-            return View();
+            return View(teamDb.GetAll().Where(x => x.TeamName == "Yazılım"));
         }
 
 
@@ -67,7 +74,7 @@ namespace SelcukElektromobilWebsite.Controllers
         /* GALERI */
         public IActionResult Galeri()
         {
-            return View();
+            return View(galleryDb.GetAll());
         }
 
 
@@ -83,7 +90,7 @@ namespace SelcukElektromobilWebsite.Controllers
         /* HABERLER */
         public IActionResult Haberler()
         {
-            return View();
+            return View(newsDb.GetAll());
         }
 
 
@@ -91,6 +98,18 @@ namespace SelcukElektromobilWebsite.Controllers
         /* ILETISIM */
         public IActionResult Iletisim()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Iletisim(Contact contact)
+        {
+            if (contact.Title.Length > 1 && contact.Message.Length > 1)
+            {
+                contact.Date = DateTime.Now.ToShortDateString();
+                contactDb.Add(contact);
+                TempData["SendMessageSuccess"] = "Mesaj Başarıyla Gönderildi.";
+                return RedirectToAction("Iletisim");
+            }
             return View();
         }
 
