@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Saklambac.NetCore.Database;
+using SelcukElektromobilWebsite.AuthFilter;
 using SelcukElektromobilWebsite.Models;
 
 namespace SelcukElektromobilWebsite.Controllers
 {
+    [YoneticiFilter]
     public class YoneticiKullaniciController : Controller
     {
 

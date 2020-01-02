@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Saklambac.NetCore.Database;
+using SelcukElektromobilWebsite.AuthFilter;
 using SelcukElektromobilWebsite.Models;
 
 namespace SelcukElektromobilWebsite.Controllers
@@ -14,18 +15,25 @@ namespace SelcukElektromobilWebsite.Controllers
 
         SaklambacDb<Contact> contactDb = new SaklambacDb<Contact>();
         SaklambacDb<User> userDb = new SaklambacDb<User>();
+        SaklambacDb<Team> teamDb = new SaklambacDb<Team>();
+        SaklambacDb<News> newsDb = new SaklambacDb<News>();
+        SaklambacDb<Gallery> galleryDb = new SaklambacDb<Gallery>();
 
         /* ANASAYFA */
+        [YoneticiFilter]
         public IActionResult Index()
         {
             CreateContactMessage();
+            ViewBag.YoneticiMesajSayi = contactDb.GetAll().Count.ToString();
+            ViewBag.YoneticiEkipSayi = teamDb.GetAll().Count.ToString();
+            ViewBag.YoneticiHaberSayi = newsDb.GetAll().Count.ToString();
+            ViewBag.YoneticiGaleriSayi = galleryDb.GetAll().Count.ToString();
             return View();
         }
 
         /* GIRIS YAP */
         public IActionResult Giris()
         {
-
             return View();
         }
         [HttpPost]
@@ -41,18 +49,21 @@ namespace SelcukElektromobilWebsite.Controllers
         }
 
         /* BILGILER */
+        [YoneticiFilter]
         public IActionResult Bilgiler()
         {
             return View();
         }
 
         /* MESAJLAR */
+        [YoneticiFilter]
         public IActionResult Mesajlar()
         {
             return View(contactDb.GetAll());
         }
 
         /* MESAJ OKU */
+        [YoneticiFilter]
         public IActionResult MesajOku(string Id)
         {
             return View(contactDb.GetOneById(Id));
