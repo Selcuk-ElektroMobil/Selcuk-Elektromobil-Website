@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Saklambac.NetCore.Database;
 using SelcukElektromobilWebsite.Models;
@@ -12,6 +13,7 @@ namespace SelcukElektromobilWebsite.Controllers
     {
 
         SaklambacDb<Contact> contactDb = new SaklambacDb<Contact>();
+        SaklambacDb<User> userDb = new SaklambacDb<User>();
 
         /* ANASAYFA */
         public IActionResult Index()
@@ -23,6 +25,18 @@ namespace SelcukElektromobilWebsite.Controllers
         /* GIRIS YAP */
         public IActionResult Giris()
         {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Giris(User user)
+        {
+            var users = userDb.GetAll().Where(x => x.Username == user.Username && x.Password == user.Password);
+            if (users.Count() > 0)
+            {
+                HttpContext.Session.SetString("SessionUserId", user.Username);
+                return RedirectToAction("Index");   
+            }
             return View();
         }
 
