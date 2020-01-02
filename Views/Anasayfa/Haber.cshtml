@@ -1,0 +1,22 @@
+﻿@model News
+@{
+    ViewData["Title"] = "Haber";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Page Header -->
+<div style="background-color:#2c3e50;height:250px;" data-aos="fade" id="home-section">
+    <div class="container-fluid" style="top: 60%;position: absolute;transform: translateY(-50%);-ms-transform: translateY(-50%);">
+        <center><h1 style="color:#fff">Haber Detayı</h1></center>
+    </div>
+</div>
+
+<section class="site-section bg-light" id="blog-section">
+    <div class="container">
+
+        <div class="row">
+            <p>@Model.Title</p>
+        </div>
+    </div>
+</section>
+

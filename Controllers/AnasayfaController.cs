@@ -93,6 +93,15 @@ namespace SelcukElektromobilWebsite.Controllers
             return View(newsDb.GetAll());
         }
 
+        public IActionResult Haber(string Id)
+        {
+            var item = newsDb.GetOneById(Id);
+            if (item == null)
+            {
+                return RedirectToAction("Haberler");
+            }
+            return View(item);
+        }
 
 
         /* ILETISIM */

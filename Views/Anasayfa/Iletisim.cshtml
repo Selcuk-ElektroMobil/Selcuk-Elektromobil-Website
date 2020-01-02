@@ -1,4 +1,4 @@
-﻿
+﻿@model Contact
 @{
     ViewData["Title"] = "Iletisim";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,18 +30,18 @@
 
 
 
-                <form action="#" class="p-5 bg-white">
+                <form asp-controller="Anasayfa" asp-action="Iletisim" class="p-5 bg-white">
 
                     <h2 class="h4 text-black mb-5">İletişim Formu</h2>
 
                     <div class="row form-group">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <label class="text-black" for="fname">İsim</label>
-                            <input type="text" id="fname" class="form-control">
+                            <input type="text" asp-for="Name" class="form-control" required>
                         </div>
                         <div class="col-md-6">
                             <label class="text-black" for="lname">Soyisim</label>
-                            <input type="text" id="lname" class="form-control">
+                            <input type="text" asp-for="Surname" class="form-control" required>
                         </div>
                     </div>
 
@@ -49,7 +49,7 @@
 
                         <div class="col-md-12">
                             <label class="text-black" for="email">Mail Adresi</label>
-                            <input type="email" id="email" class="form-control">
+                            <input type="email" asp-for="Mail" class="form-control" required>
                         </div>
                     </div>
 
@@ -57,14 +57,14 @@
 
                         <div class="col-md-12">
                             <label class="text-black" for="subject">Başlık</label>
-                            <input type="subject" id="subject" class="form-control">
+                            <input type="text" asp-for="Title" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="message">Mesajınız</label>
-                            <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Mesajınızı Buraya Yazabilirsiniz..."></textarea>
+                            <textarea name="message" asp-for="Message" cols="30" rows="7" class="form-control" placeholder="Mesajınızı Buraya Yazabilirsiniz..."></textarea>
                         </div>
                     </div>
 
